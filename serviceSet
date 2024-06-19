@@ -1,0 +1,21 @@
+app.module.ts
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { MyServiceService } from './my-service.service'; // Import the service
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [MyServiceService], // Register the service
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+---------------------------------------------------------
+app.component.ts
