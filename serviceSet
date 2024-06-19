@@ -19,3 +19,40 @@ import { MyServiceService } from './my-service.service'; // Import the service
 export class AppModule { }
 ---------------------------------------------------------
 app.component.ts
+import { Component, OnInit } from '@angular/core';
+import { MyServiceService } from './my-service.service'; // Import the service
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  title = 'my-angular-app';
+
+  constructor(private myService: MyServiceService) {} // Inject the service
+
+  ngOnInit() {
+    // Use the service
+    this.title = this.myService.getServiceData();
+  }
+}
+
+--------------------------------------------------------------------
+my-service.service.ts
+
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MyServiceService {
+
+  constructor() { }
+
+  getServiceData() {
+    return 'Data from the service';
+  }
+}
+
+-------------------------------------------------
